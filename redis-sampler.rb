@@ -247,7 +247,7 @@ if ARGV.length != 4
     exit 1
 end
 
-redis = Redis.new(:host => ARGV[0], :port => ARGV[1].to_i, :db => ARGV[2].to_i)
+redis = Redis.new(:host => ARGV[0], :port => ARGV[1].to_i, :db => ARGV[2].to_i, :ssl => true)
 sampler = RedisSampler.new(redis,ARGV[3].to_i)
 puts "Sampling #{ARGV[0]}:#{ARGV[1]} DB:#{ARGV[2]} with #{ARGV[3]} RANDOMKEYS"
 sampler.sample
